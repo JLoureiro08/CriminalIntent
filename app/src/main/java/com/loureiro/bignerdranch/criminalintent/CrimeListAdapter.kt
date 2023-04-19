@@ -1,11 +1,13 @@
 package com.loureiro.bignerdranch.criminalintent
 
+import android.icu.text.SimpleDateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.loureiro.bignerdranch.criminalintent.databinding.ListItemCrimeBinding
+import java.text.DateFormat
 
 class CrimeHolder (
     val binding: ListItemCrimeBinding
@@ -14,7 +16,8 @@ class CrimeHolder (
 
     fun bind(crime: Crime) {
         binding.crimeTitle.text = crime.title
-        binding.crimeDate.text = crime.date.toString()
+        //binding.crimeDate.text = crime.date.toString()
+        binding.crimeDate.text = android.text.format.DateFormat.format("EEEE, MMM dd, yyyy.", crime.date)
 
         binding.root.setOnClickListener{
             Toast.makeText(
