@@ -11,7 +11,7 @@ import java.util.Date
 import java.util.UUID
 
 class CrimeDetailFragment : Fragment() {
-
+//b
     //private lateinit var binding: FragmentCrimeDetailBinding
     private var _binding: FragmentCrimeDetailBinding? = null
     private val binding
