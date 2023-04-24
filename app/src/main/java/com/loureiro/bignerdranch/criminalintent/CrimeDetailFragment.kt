@@ -28,7 +28,11 @@ class CrimeDetailFragment : Fragment() {
             id = UUID.randomUUID(),
             title = "",
             date = Date(),
-            isSolved = false
+            isSolved = false,
+            requiresPolice = when ((0..1).shuffled()) {
+                0 -> false
+                else -> true
+            }
         )
     }
 

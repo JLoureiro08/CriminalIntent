@@ -11,6 +11,12 @@
         android:layout_height="wrap_content"
         android:text="Crime Title"/>
 
+    <Button
+        android:id="@+id/contact_police_button"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:text="Contact Police" />
+
     <TextView
         android:id="@+id/crime_date"
         android:layout_width="match_parent"
