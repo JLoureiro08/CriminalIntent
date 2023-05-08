@@ -1,7 +1,6 @@
 package com.loureiro.bignerdranch.criminalintent
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loureiro.bignerdranch.criminalintent.databinding.FragmentCrimeListBinding
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class CrimeListFragment : Fragment(){
@@ -62,7 +60,11 @@ class CrimeListFragment : Fragment(){
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 crimeListViewModel.crimes.collect { crimes ->
                     binding.crimeRecyclerView.adapter =
-                        CrimeListAdapter(crimes)
+                        CrimeListAdapter(crimes) {crimeId ->
+                            findNavController().navigate(
+                                CrimeListFragmentDirections.showCrimeDetail(crimeId)
+                            )
+                        }
                 }
             }
         }
